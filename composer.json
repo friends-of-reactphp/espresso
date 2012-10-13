@@ -6,12 +6,11 @@
     "require": {
         "php": ">=5.3.3",
         "react/http": "0.2.*",
-        "silex/silex": "1.0.*"
+        "silex/silex": "1.0.*@dev"
     },
     "autoload": {
-        "psr-0": { "React\\Espresso": "" }
+        "psr-0": { "React\\Espresso": "src" }
     },
-    "target-dir": "React/Espresso",
     "extra": {
         "branch-alias": {
             "dev-master": "0.2"
