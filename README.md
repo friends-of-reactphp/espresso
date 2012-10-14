@@ -7,7 +7,8 @@ React/Http.
 
 ## Install
 
-The recommended way to install react/espresso is [through composer](http://getcomposer.org).
+The recommended way to install react/espresso is [through
+composer](http://getcomposer.org).
 
 ```JSON
 {
