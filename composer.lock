@@ -216,12 +216,12 @@
             "target-dir": "React/EventLoop",
             "source": {
                 "type": "git",
-                "url": "https://github.com/react-php/event-loop.git",
+                "url": "https://github.com/reactphp/event-loop",
                 "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/react-php/event-loop/zipball/v0.2.1",
+                "url": "https://github.com/reactphp/event-loop/zipball/v0.2.1",
                 "reference": "v0.2.1",
                 "shasum": ""
             },
@@ -258,12 +258,12 @@
             "target-dir": "React/Http",
             "source": {
                 "type": "git",
-                "url": "https://github.com/react-php/http.git",
+                "url": "https://github.com/reactphp/http",
                 "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/react-php/http/zipball/v0.2.1",
+                "url": "https://github.com/reactphp/http/zipball/v0.2.1",
                 "reference": "v0.2.1",
                 "shasum": ""
             },
@@ -300,12 +300,12 @@
             "target-dir": "React/Socket",
             "source": {
                 "type": "git",
-                "url": "https://github.com/react-php/socket.git",
+                "url": "https://github.com/reactphp/socket",
                 "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/react-php/socket/zipball/v0.2.1",
+                "url": "https://github.com/reactphp/socket/zipball/v0.2.1",
                 "reference": "v0.2.1",
                 "shasum": ""
             },
@@ -342,12 +342,12 @@
             "target-dir": "React/Stream",
             "source": {
                 "type": "git",
-                "url": "https://github.com/react-php/stream",
+                "url": "https://github.com/reactphp/stream",
                 "reference": "v0.2.1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/react-php/stream/zipball/v0.2.1",
+                "url": "https://github.com/reactphp/stream/zipball/v0.2.1",
                 "reference": "v0.2.1",
                 "shasum": ""
             },
@@ -686,7 +686,9 @@
             "homepage": "http://symfony.com"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+
+    ],
     "aliases": [
 
     ],
