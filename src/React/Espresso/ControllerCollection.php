@@ -2,11 +2,13 @@
 
 namespace React\Espresso;
 
+use React\Http\Request;
+use React\Http\Response;
 use Silex\ControllerCollection as BaseControllerCollection;
 use Silex\Route;
-  use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\HttpFoundation\StreamedResponse as SymfonyStreamedResponse;
+use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 class ControllerCollection extends BaseControllerCollection
 {
@@ -31,12 +33,10 @@ class ControllerCollection extends BaseControllerCollection
     {
         $resolver = $this->resolver;
 
-        return function (Request $sfRequest) use ($controller, $resolver) {
-            $request = $sfRequest->attributes->get('react.espresso.request');
-            $response = $sfRequest->attributes->get('react.espresso.response');
+        return function (Request $request, Response $response) use ($controller, $resolver) {
 
             if (!is_callable($controller)) {
-                $controller = $resolver->getController($sfRequest);
+                $controller = $resolver->getController(SymfonyRequest::create($request->getPath(), $request->getMethod()));
             }
 
             call_user_func($controller, $request, $response);
