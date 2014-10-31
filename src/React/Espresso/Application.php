@@ -6,6 +6,7 @@ use React\Http\Request;
 use React\Http\Response;
 use Silex\Application as BaseApplication;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class Application extends BaseApplication
@@ -23,8 +24,16 @@ class Application extends BaseApplication
 
     public function __invoke(Request $request, Response $response)
     {
-        $sfRequest = $this->buildSymfonyRequest($request, $response);
-        $this->handle($sfRequest, HttpKernelInterface::MASTER_REQUEST, false);
+        try {
+            $sfRequest = $this->buildSymfonyRequest($request, $response);
+            $this->handle($sfRequest, HttpKernelInterface::MASTER_REQUEST, false);
+        } catch (HttpException $e) {
+            $response->writeHead($e->getStatusCode());
+            $response->end($e->getMessage());
+        } catch (\Exception $e) {
+            $response->writeHead(500);
+            $response->end($e->getMessage());
+        }
     }
 
     private function buildSymfonyRequest(Request $request, Response $response)
