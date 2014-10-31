@@ -17,7 +17,7 @@ class Application extends BaseApplication
         $app = $this;
 
         $this['controllers_factory'] = function () use ($app) {
-            return new ControllerCollection($app['route_factory']);
+            return new ControllerCollection($app['route_factory'], $app['resolver']);
         };
     }
 
