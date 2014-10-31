@@ -32,7 +32,9 @@ class Application extends BaseApplication
             $response->end($e->getMessage());
         } catch (\Exception $e) {
             $response->writeHead(500);
-            $response->end($e->getMessage());
+            $response->write($e->getMessage()."\n");
+            $response->write($e->getFile()."\n");
+            $response->end($e->getTraceAsString()."\n");
         }
     }
 
