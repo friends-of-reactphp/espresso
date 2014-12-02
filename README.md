@@ -10,42 +10,41 @@ React/Http.
 The recommended way to install react/espresso is [through
 composer](http://getcomposer.org).
 
-```JSON
-{
-    "require": {
-        "minimum-stability": "dev",
-        "react/espresso": "0.2.*"
-    }
-}
+```
+$ composer require react/espresso
 ```
 
 ## Example
 
-    $app = new React\Espresso\Application();
+> all your Controllers stay the same, the converting between symfony request/response and react request/response is completely shallow
 
-    $app->get('/', function ($request, $response) {
-        $response->writeHead(200, array('Content-Type' => 'text/plain'));
-        $response->end("Hello World\n");
-    });
+```php
+<?php
+// react.php
 
-    $app->get('/favicon.ico', function ($request, $response) {
-        $response->writeHead(204);
-        $response->end();
-    });
+$app = new React\Espresso\Application();
 
-    $app->get('/humans.txt', function ($request, $response) {
-        $response->writeHead(200, array('Content-Type' => 'text/plain'));
-        $response->end("I believe you are a humanoid robot.\n");
-    });
+$app->get('/hello/{name}', function ($name) use ($app) {
+    return 'Hello '.$app->escape($name);
+});
 
-    $stack = new React\Espresso\Stack($app);
-    $stack->listen(1337);
+$stack = new React\Espresso\Stack($app);
+$stack->listen(1337);
+```
+
+```
+$ php react.php
+```
+
+> now visit  [http://localhost:1337/hello/react](http://localhost:1337/hello/react)
 
 ## Tests
 
 To run the test suite, you need PHPUnit.
 
-    $ phpunit
+```
+$ phpunit
+```
 
 ## License
 
