@@ -3,7 +3,7 @@
 React/Espresso is a proof-of-concept microframework that integrates Silex with
 React/Http.
 
-[![Build Status](https://secure.travis-ci.org/reactphp/espresso.png?branch=master)](http://travis-ci.org/reactphp/espresso)
+[![Build Status](https://secure.travis-ci.org/reactphp/espresso.png?branch=master)](http://travis-ci.org/reactphp/espresso) [![Code Climate](https://codeclimate.com/github/reactphp/espresso/badges/gpa.svg)](https://codeclimate.com/github/reactphp/espresso)
 
 ## Install
 
