@@ -12,8 +12,8 @@ composer](http://getcomposer.org).
 
 ```JSON
 {
+    "minimum-stability": "dev",
     "require": {
-        "minimum-stability": "dev",
         "react/espresso": "0.2.*"
     }
 }
