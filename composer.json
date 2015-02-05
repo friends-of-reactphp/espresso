@@ -9,7 +9,7 @@
         "silex/silex": "1.0.*@dev"
     },
     "autoload": {
-        "psr-0": { "React\\Espresso": "src" }
+        "psr-4": { "React\\Espresso\\": "src" }
     },
     "extra": {
         "branch-alias": {
