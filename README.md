@@ -21,25 +21,27 @@ composer](http://getcomposer.org).
 
 ## Example
 
-    $app = new React\Espresso\Application();
+```php
+$app = new React\Espresso\Application();
 
-    $app->get('/', function ($request, $response) {
-        $response->writeHead(200, array('Content-Type' => 'text/plain'));
-        $response->end("Hello World\n");
-    });
+$app->get('/', function ($request, $response) {
+    $response->writeHead(200, array('Content-Type' => 'text/plain'));
+    $response->end("Hello World\n");
+});
 
-    $app->get('/favicon.ico', function ($request, $response) {
-        $response->writeHead(204);
-        $response->end();
-    });
+$app->get('/favicon.ico', function ($request, $response) {
+    $response->writeHead(204);
+    $response->end();
+});
 
-    $app->get('/humans.txt', function ($request, $response) {
-        $response->writeHead(200, array('Content-Type' => 'text/plain'));
-        $response->end("I believe you are a humanoid robot.\n");
-    });
+$app->get('/humans.txt', function ($request, $response) {
+    $response->writeHead(200, array('Content-Type' => 'text/plain'));
+    $response->end("I believe you are a humanoid robot.\n");
+});
 
-    $stack = new React\Espresso\Stack($app);
-    $stack->listen(1337);
+$stack = new React\Espresso\Stack($app);
+$stack->listen(1337);
+```
 
 ## Tests
 
