@@ -22,7 +22,7 @@ class Stack extends \Pimple
             return new HttpServer($stack['socket']);
         });
 
-        $isFactory = is_object($app) && method_exists($app, '__invoke');
+        $isFactory = is_callable($app);
         $this['app'] = $isFactory ? $this->protectService($app) : $app;
     }
 
