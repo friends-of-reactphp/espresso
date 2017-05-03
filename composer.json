@@ -7,7 +7,8 @@
         "php": ">=5.3.3",
         "react/http": "0.2.*",
         "silex/silex": "2.0",
-        "pimple/pimple": "^3.0"
+        "pimple/pimple": "^3.0",
+        "symfony/browser-kit": "^3.2"
     },
     "autoload": {
         "psr-0": { "React\\Espresso": "src" }

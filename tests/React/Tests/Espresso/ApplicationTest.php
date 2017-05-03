@@ -6,31 +6,30 @@ use React\Espresso\Application;
 use React\Espresso\Stack;
 use React\Http\Request;
 use React\Http\Response;
+use Silex\WebTestCase;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
-    public function testApplicationWithGetRequest()
+    public function testApplicationWithHTTPMethods()
     {
         $app = new Application();
 
-        $app->get('/', function ($request, $response) {
-            $response->writeHead(200, array('Content-Type' => 'text/plain'));
-            $response->end("Hello World\n");
-        });
+        $returnValue = $app->match('/foo', function () {});
+        $this->assertInstanceOf('Silex\Controller', $returnValue);
 
-        $conn = $this->getMock('React\Socket\ConnectionInterface');
-        $conn
-            ->expects($this->at(0))
-            ->method('write')
-            ->with($this->stringContains("text/plain"));
-        $conn
-            ->expects($this->at(1))
-            ->method('write')
-            ->with($this->stringContains("Hello World\n"));
+        $returnValue = $app->get('/foo', function () {});
+        $this->assertInstanceOf('Silex\Controller', $returnValue);
 
-        $request = new Request('GET', '/');
-        $response = new Response($conn);
+        $returnValue = $app->post('/foo', function () {});
+        $this->assertInstanceOf('Silex\Controller', $returnValue);
 
-        $app($request, $response);
+        $returnValue = $app->put('/foo', function () {});
+        $this->assertInstanceOf('Silex\Controller', $returnValue);
+
+        $returnValue = $app->patch('/foo', function () {});
+        $this->assertInstanceOf('Silex\Controller', $returnValue);
+
+        $returnValue = $app->delete('/foo', function () {});
+        $this->assertInstanceOf('Silex\Controller', $returnValue);
     }
 }
