@@ -7,7 +7,7 @@ use React\Espresso\Stack;
 use React\Http\Request;
 use React\Http\Response;
 
-class ApplicationTest extends PHPUnit_Framework_TestCase
+class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
     public function testApplicationWithHTTPMethods()
     {
