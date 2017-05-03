@@ -5,22 +5,23 @@ namespace React\Espresso;
 use React\EventLoop\Factory;
 use React\Socket\Server as SocketServer;
 use React\Http\Server as HttpServer;
+use Pimple\Container;
 
-class Stack extends \Pimple
+class Stack extends Container
 {
     public function __construct($app)
     {
-        $this['loop'] = $this->share(function () {
+        $this['loop'] = function () {
             return Factory::create();
-        });
+        };
 
-        $this['socket'] = $this->share(function ($stack) {
+        $this['socket'] = function ($stack) {
             return new SocketServer($stack['loop']);
-        });
+        };
 
-        $this['http'] = $this->share(function ($stack) {
+        $this['http'] = function ($stack) {
             return new HttpServer($stack['socket']);
-        });
+        };
 
         $isFactory = is_object($app) && method_exists($app, '__invoke');
         $this['app'] = $isFactory ? $this->protectService($app) : $app;

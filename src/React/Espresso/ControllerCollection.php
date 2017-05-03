@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\StreamedResponse as SymfonyStreamedResponse
 
 class ControllerCollection extends BaseControllerCollection
 {
-    public function match($pattern, $to)
+    public function match($pattern, $to = NULL)
     {
         $wrapped = $this->wrapController($to);
 
