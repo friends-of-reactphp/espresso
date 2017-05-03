@@ -7,8 +7,11 @@ php:
   - 7.1
   - hhvm
 
+
 before_script:
   - composer self-update
-  - composer install
+  - composer update
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "5.5" ]]; then composer require --dev --no-update phpunit/phpunit ~4; fi
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} => "7.0" ]]; then composer require --dev --no-update phpunit/phpunit 5.4.6; fi
 
 script: composer test
