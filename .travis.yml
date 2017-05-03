@@ -10,6 +10,6 @@ php:
 before_script:
   - composer self-update
   - composer update
-  - composer require phpunit/phpunit >= 4
+  - composer require phpunit/phpunit
 
 script: php vendor/bin/phpunit --coverage-text
