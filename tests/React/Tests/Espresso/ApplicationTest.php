@@ -6,7 +6,6 @@ use React\Espresso\Application;
 use React\Espresso\Stack;
 use React\Http\Request;
 use React\Http\Response;
-use Silex\WebTestCase;
 
 class ApplicationTest extends \PHPUnit_Framework_TestCase
 {
