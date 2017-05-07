@@ -16,7 +16,7 @@ class Stack extends Container
         };
 
         $this['socket'] = function ($stack) {
-            return new SocketServer($stack['loop']);
+            return new SocketServer(1337, $stack['loop']);
         };
 
         $this['http'] = function ($stack) {
@@ -30,7 +30,6 @@ class Stack extends Container
     public function listen($port, $host = '127.0.0.1')
     {
         $this['http']->on('request', $this['app']);
-        $this['socket']->listen($port, $host);
         $this['loop']->run();
     }
 

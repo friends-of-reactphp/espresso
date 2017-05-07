@@ -5,7 +5,7 @@
     "license": "MIT",
     "require": {
         "php": ">=5.6",
-        "react/http": "0.2.*",
+        "react/http": "0.6",
         "silex/silex": "2.0",
         "pimple/pimple": "^3.0"
     },
