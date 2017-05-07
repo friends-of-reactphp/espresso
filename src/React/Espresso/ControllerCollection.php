@@ -6,6 +6,9 @@ use Silex\ControllerCollection as BaseControllerCollection;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\StreamedResponse as SymfonyStreamedResponse;
 
+/**
+ * ControllerCollection
+ */
 class ControllerCollection extends BaseControllerCollection
 {
     public function match($pattern, $to = NULL)
