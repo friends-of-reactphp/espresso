@@ -1,15 +1,13 @@
 language: php
 
 php:
-  - 5.3.3
-  - 5.3
-  - 5.4
-  - 5.5
   - 5.6
-  - hhvm
+  - 7.0
+  - 7.1
 
 before_script:
   - composer self-update
-  - composer install
+  - composer update
+  - composer require phpunit/phpunit 5.7.5
 
-script: phpunit --coverage-text
+script: php vendor/bin/phpunit --coverage-text
